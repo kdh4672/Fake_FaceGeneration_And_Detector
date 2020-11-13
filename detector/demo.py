@@ -65,7 +65,6 @@ with torch.no_grad():
             x = (x - 0.5) / 0.5
             x = np.expand_dims(phase_spectrum, axis=0)
 #             ## normalize
-            print(predict)
             predict = model(torch.Tensor(x).unsqueeze(0).to(device))
             predicted_label = torch.max(predict, 1)[1]
             print(list[predicted_label])
