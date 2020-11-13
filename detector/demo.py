@@ -16,7 +16,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--p_weight', type=str, default='./shape_predictor_5_face_landmarks.dat', help='dlib shape predictor weight')
 parser.add_argument('--m_weight', type=str, default='./mmod_human_face_detector.dat', help='dlib face detector weight')
-parser.add_argument('--r_weight', type=str, default='./resnet50_phase_no_norm_17_999.pth', help='directory of CNN weight')
+parser.add_argument('--r_weight', type=str, default='./resnet50_phase_no_norm_19_999.pth', help='directory of CNN weight')
 parser.add_argument('--dir', type=str, default='./dataset', help='directory of fake/real dataset')
 
 opt = parser.parse_args()
