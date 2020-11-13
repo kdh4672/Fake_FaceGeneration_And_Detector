@@ -33,13 +33,8 @@ device = torch.device(f'cuda:0' if torch.cuda.is_available() else 'cpu')
 
 
 
-# transform = transforms.Compose([
-#         transforms.Resize((256,256)),
-#         transforms.ToTensor(), # 데이터를 PyTorch의 Tensor 형식으로 바꾼다.
-#         # transforms.Normalize(mean=(0.5), std=(0.5)) # 픽셀값 0 ~ 1 -> -1 ~ 1
-# ])
-
-total_dataset = FakeDataset(root_dir='/home/capstone_ai1/kong/fft_processed', normalize = False)
+dir = '/home/capstone_ai1/kong/fft_processed' ## dataset directory (face alignment-phase extracted ) 
+total_dataset = FakeDataset(root_dir=dir, normalize = False)
 
 total_size = len(total_dataset)
 train_size = int(np.ceil(total_size*0.99))
