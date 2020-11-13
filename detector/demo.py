@@ -28,7 +28,7 @@ detector = dlib.cnn_face_detection_model_v1(opt.m_weight)
 # 데이터를 한번에 batch_size만큼만 가져오는 dataloader를 만든다.
 num_classes = 2
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-pth = '/home/capstone_ai1/kong/fake_detect/resnet50_phase_no_norm_17_999.pth'
+pth = opt.r_weight
 model = models.resnet50()
 model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3,
                                bias=False)
@@ -46,8 +46,8 @@ f = open('fake_real_report.csv', mode='wt', encoding='utf-8')
 f.writelines('path,y')
 
 with torch.no_grad():
-    for file in sorted(os.listdir(dir)):
-        img = cv2.imread(dir + file)
+    for file in sorted(os.listdir(opt.dir)):
+        img = cv2.imread(opt.dir+'/'+file)
         print(file)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         dets = detector(gray, 1)
